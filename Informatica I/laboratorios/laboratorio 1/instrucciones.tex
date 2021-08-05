@@ -1,0 +1,166 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Programming/Coding Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy  text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+% This template uses a Perl script as an example snippet of code, most other
+% languages are also usable. Configure them in the "CODE INCLUSION 
+% CONFIGURATION" section.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+%\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{graphicx} % Required to insert images
+\usepackage{color}
+\usepackage{listings} % Required for insertion of code
+\usepackage{courier} % Required for the courier font
+\usepackage{multirow}
+\usepackage{hyperref}
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1} % Line spacing
+
+%----------------------------------------------------------------------------------------
+%	CODE INCLUSION CONFIGURATION
+%----------------------------------------------------------------------------------------
+
+\definecolor{MyDarkGreen}{rgb}{0.0,0.4,0.0} % This is the color used for comments
+\lstloadlanguages{c} % Load Perl syntax for listings, for a list of other languages supported see: ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/listings/listings.pdf
+\lstset{language=[sharp]c, % Use Perl in this example
+        frame=single, % Single frame around code
+        basicstyle=\small\ttfamily, % Use small true type font
+        keywordstyle=[1]\color{Blue}\bf, % Perl functions bold and blue
+        keywordstyle=[2]\color{Purple}, % Perl function arguments purple
+        keywordstyle=[3]\color{Blue}\underbar, % Custom functions underlined and blue
+        identifierstyle=, % Nothing special about identifiers                                         
+        commentstyle=\usefont{T1}{pcr}{m}{sl}\color{MyDarkGreen}\small, % Comments small dark green courier font
+        stringstyle=\color{Purple}, % Strings are purple
+        showstringspaces=false, % Don't put marks in string spaces
+        tabsize=5, % 5 spaces per tab
+        %
+        % Put standard Perl functions not included in the default language here
+        morekeywords={rand},
+        %
+        % Put Perl function parameters here
+        morekeywords=[2]{on, off, interp},
+        %
+        % Put user defined functions here
+        morekeywords=[3]{test},
+       	%
+        morecomment=[l][\color{Blue}]{...}, % Line continuation (...) like blue comment
+        numbers=left, % Line numbers on left
+        firstnumber=1, % Line numbers start with line 1
+        numberstyle=\tiny\color{Blue}, % Line numbers are blue and small
+        stepnumber=5 % Line numbers go in steps of 5
+}
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+
+% Creates a new command to include a perl script, the first parameter is the filename of the script (without .pl), the second parameter is the caption
+\newcommand{\perlscript}[2]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#2,label=#1]{#1.cs}
+\end{itemize}
+}
+
+\begin{document}
+
+\begin{tabular}{l l}
+\multirow{5}{*}{\includegraphics[width=2cm]{../../recursos/logo.png}} & Universidad del Istmo de Guatemala \\
+ & Facultad de Ingenieria \\
+ & Ing. en Sistemas y Ciencias de la Computaci\'on \\
+ & Informatica 1 \\
+ & Prof. Ernesto Rodriguez - \href{mailto:erodriguez@unis.edu.gt}{erodriguez@unis.edu.gt} \\
+\end{tabular}
+\\\\\\
+
+\begin{center}
+        \horrule{0.5pt}
+        \huge{Laboratorio \#1} \\
+        \large{Fecha de entrega: 06 de Agosto, 2021 - 11:59pm} \\
+        \large{Modalidad de trabajo: Individual o Parejas}
+        \horrule{1pt}
+\end{center}
+
+\emph{Instrucciones: Resolver los problemas que se le presentan a
+continuaci\'on. Este trabajo debe ser entregado como un pull request
+en Github. Instrucciones e informaci\'on acerca de un pull request
+se encuentran al final de este documento y tambien se describiran
+en clase.}
+
+% \perlscript{homework_example}{Sample Perl Script With Highlighting}
+
+\section*{Ejercicio \#1 (50\%): Multiplicaci\'on Inductiva}
+De una \emph{definici\'on inductiva} para multiplicar dos \emph{numeros de peano}.
+Tiene permitido utilizar la definicion de suma que se estudio en clase en
+su definici\'on de multiplicaci\'on. Esta se presenta a continuaci\'on:
+\[
+    \begin{array}{l}
+        n \oplus 0 = n \\
+        0 \oplus m = m \\
+        n \oplus \mathbf{s}(a) = \mathbf{s}(n \oplus a)
+    \end{array}
+\]
+Recuerde que una multiplicaci\'on es una sucessi\'on de sumas. Utilize
+este conocimiento para representar dicha succesi\'on de forma inductiva.
+Por ejemplo: $3 \otimes 4 = 3 \oplus 3 \oplus 3 \oplus 3 = 4 \oplus 4 \oplus 4$.
+
+\section*{Ejercicio \#2: Inducci\'on (50\%)}
+
+Utilize el \emph{principio de inducci\'on} para demostrar que:
+\[
+    a \oplus (b \oplus c) = (a \oplus b) \oplus c 
+\]
+En donde $a, b, c$ son \emph{numeros de peano} y $\oplus$ es la
+suma de numeros de peano estudiada en clase.
+
+\section*{Entrega}
+
+\begin{enumerate}
+\item{Crear una cuenta en \url{github.com}}
+\item{\href{https://github.com/git-guides/install-git}{Instalar git} en su computadora.}
+\item{Navegar al \emph{repositorio del curso}: \url{https://github.com/universidad-del-istmo/informatica-2021-2022}}
+\item{Hacer un \href{https://docs.github.com/en/get-started/quickstart/fork-a-repo}{fork} del
+repositorio presionando el boton de fork.}
+\item{Navegar a la copia del repositorio creada mediante fork.}
+\item{\href{https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository}{Clonar} el
+repositorio creado a su computadora.}
+\item{Crear una \href{https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches}{rama} en
+la copia en su computadora de su repositorio mediante ``git checkout -b laboratorio1''. Esta
+rama permitira trabajar en este laboratorio de forma aislada.}
+\item{En el repositorio clonado, crear una \emph{carpeta de entrega} ubicada en ``Informatica I\textbackslash laboratorios\textbackslash laboratorio 1\textbackslash [Nombre del grupo]''}
+\item{Crear un archivo llamado ``grupo.txt'' en su \emph{carpeta de entrega} y apuntar los nombres
+de los alumnos que elaboraron ese trabajo.}
+\item{Colocar su trabajo en la \emph{carpeta de entrega}.}
+\item{Crear una nueva revisi\'on del repositorio mediante \href{https://github.com/git-guides/git-commit}{git commit}.}
+\item{Empujar la nueva revisi\'on a su copia del repositorio mediante \href{https://github.com/git-guides/git-push}{git push}.}
+\item{Crear un \href{https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests}{pull request} con sus cambios en el \emph{repositorio del curso}.
+Asegurese de seleccionar la rama correcta de su repositorio y selecionar \emph{master} como
+rama del repositorio del curso.}
+\end{enumerate}
+\end{document}
